@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <form class="form-inline">
+                <fieldset class="form-group col-sm-1"></fieldset>
+                <fieldset class="form-group col-sm-1">
+                    <a class="btn btn-primary">+</a>
+                </fieldset>
+            </form>
+            <br>
+            <table class="table table-striped">
+                <thead>
+                    <tr class="row">
+                        <th class="col-sm-6">Título</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let tarea of tareas" class="row">
+                        <td class="col-sm-6">
+                            <i>{{tarea.titulo}}</i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
