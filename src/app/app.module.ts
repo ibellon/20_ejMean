@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +9,7 @@ import { TareaListaComponent } from './tarea-lista/tarea-lista.component';
 import { EditTareaComponent } from './edit-tarea/edit-tarea.component';
 
 import { TareaService } from './shared/tarea.service';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { TareaService } from './shared/tarea.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [TareaService],
   bootstrap: [AppComponent]

@@ -4,20 +4,38 @@
             <form class="form-inline">
                 <fieldset class="form-group col-sm-1"></fieldset>
                 <fieldset class="form-group col-sm-1">
-                    <a class="btn btn-primary">+</a>
+                    <a class="btn btn-primary" [routerLink]="['/tareas/new']">+</a>
                 </fieldset>
             </form>
             <br>
             <table class="table table-striped">
                 <thead>
                     <tr class="row">
-                        <th class="col-sm-6">Título</th>
+                        <th class="col-sm-2">Título</th>
+                        <th class="col-sm-2">Estado</th>
+                        <th class="col-sm-2">Fecha</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let tarea of tareas" class="row">
-                        <td class="col-sm-6">
+                        <td class="col-sm-2">
                             <i>{{tarea.titulo}}</i>
+                        </td>
+                        <td class="col-sm-2">
+                            <i>{{tarea.estado}}</i>
+                        </td>
+                        <td class="col-sm-2">
+                            <i>{{tarea.fecha | date: 'dd/MM/yyyy'}}</i>
+                        </td>
+                        <td class="col-sm-2">
+                            <a class="btn btn-info" 
+                                [routerLink]="['/tareas', tarea._id, 'edit']">
+                                Edit
+                            </a>
+                        </td>
+                        <td class="col-sm-2">
+                            <a class="btn btn-danger" 
+                                (click)="deleteTarea(tarea._id)">-</a>
                         </td>
                     </tr>
                 </tbody>

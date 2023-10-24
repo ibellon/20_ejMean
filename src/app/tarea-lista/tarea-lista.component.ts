@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { TareaModel } from '../shared/tarea.model';
 import { TareaService } from '../shared/tarea.service';
 
@@ -22,4 +21,13 @@ export class TareaListaComponent implements OnInit{
    });
   }
 
+  deleteTarea(id: string) {
+    console.log("Registro borrar ",id);
+    this.tareaService.deleteTarea(id).subscribe(data => console.log(data),
+      error => console.error(error));
+      this.tareaService.getAllTareas().subscribe(result => {
+        this.tareas = result;
+        console.log(this.tareas);
+     });
+  }
 }

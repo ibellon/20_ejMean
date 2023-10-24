@@ -27,7 +27,6 @@ const http = require('http');
 const bodyParser = require('body-parser');
 
 const app = express();
-
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -37,7 +36,7 @@ app.use(function(req, res, next) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, '/dist/ej-mean/')));
 
 app.get('/api', (req, res) => {
     res.send('La API funciona');
@@ -46,7 +45,7 @@ app.get('/api', (req, res) => {
 require('./server/routes/tarea') (app);
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist/ej-mean/index.html'));
+    res.sendFile(path.join(__dirname, '/dist/ej-mean/'));
 });
 
 const port = process.env.port || '3000';

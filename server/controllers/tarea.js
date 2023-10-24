@@ -28,7 +28,11 @@ exports.read_tarea = async function(req, res) {
 
 exports.update_tarea = async function (req, res) {
     var new_tarea = new Tarea(req.body);
-    await Tarea.findOneAndUpdate({_id: req.params.tareaId}, {estado: new_tarea.estado}, {new:true}).then(tarea => {
+    await Tarea.findOneAndUpdate({_id: req.params.tareaId}, 
+        {titulo: new_tarea.titulo,
+            fecha: new_tarea.fecha, 
+            estado: new_tarea.estado}, 
+        {new:true}).then(tarea => {
         res.json(tarea);
     }).catch(err => {
         res.send(err);
